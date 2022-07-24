@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.159.235.157:7003
+        username: nacos
+        password: iHave@dReaM
+        namespace: public
+
+server:
+  port: 6002

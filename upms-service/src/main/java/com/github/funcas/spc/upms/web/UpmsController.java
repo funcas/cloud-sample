@@ -1,0 +1,28 @@
+package com.github.funcas.spc.upms.web;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * TODO
+ *
+ * @author shane
+ * @since 1.0
+ */
+@RequestMapping("/api/upms")
+@RestController
+public class UpmsController {
+
+    @GetMapping("/userinfo")
+    public Map<String, String> getUserInfo(String uid) {
+        Map<String, String> uInfo = new HashMap<>();
+        uInfo.put("uid", uid);
+        uInfo.put("name", "funcas");
+        return uInfo;
+    }
+
+}

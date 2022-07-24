@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 139.159.235.157:7003
+        username: nacos
+        password: iHave@dReaM
