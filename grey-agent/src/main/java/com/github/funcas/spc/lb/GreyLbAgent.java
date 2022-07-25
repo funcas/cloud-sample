@@ -1,19 +1,15 @@
 package com.github.funcas.spc.lb;
 
-import io.github.classgraph.*;
+import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ClassInfo;
+import io.github.classgraph.ScanResult;
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.agent.ByteBuddyAgent;
-import net.bytebuddy.agent.builder.AgentBuilder;
 import net.bytebuddy.description.annotation.AnnotationDescription;
-import net.bytebuddy.description.type.TypeDescription;
-import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
-import net.bytebuddy.matcher.ElementMatchers;
-import net.bytebuddy.utility.JavaModule;
 import org.springframework.context.annotation.Import;
 
 import java.lang.instrument.Instrumentation;
-import java.util.List;
 
 /**
  * TODO
@@ -22,6 +18,10 @@ import java.util.List;
  * @since 1.0
  */
 public class GreyLbAgent {
+
+    static {
+        ByteBuddyAgent.install();
+    }
 
     /**
      * jvm 参数形式启动，运行此方法
@@ -54,7 +54,7 @@ public class GreyLbAgent {
                 .defineTypeArray("value", new Class[]{com.github.funcas.spc.lb.DyBean.class})
                 .build();
 
-        ByteBuddyAgent.install();
+
 
         new ByteBuddy()
                 .redefine(bootClass)

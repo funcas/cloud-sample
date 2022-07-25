@@ -4,9 +4,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 139.159.235.157:7003
+        server-addr: 127.0.0.1:8848
         username: nacos
-        password: iHave@dReaM
+        password: nacos
         namespace: public
 
 server:
