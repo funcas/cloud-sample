@@ -1,13 +1,15 @@
 spring:
+  profiles:
+    active: dev1
   application:
     name: upms-service
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
-        username: nacos
-        password: nacos
-        namespace: public
+        server-addr: ${nacos.address}
+        username: ${nacos.user}
+        password: ${nacos.password}
+        namespace: ${nacos.namespace}
 
 server:
   port: 6001

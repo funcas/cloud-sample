@@ -1,0 +1,39 @@
+GET http://127.0.0.1:6002/api/order/remote/user?uid=123
+Accept: application/json
+X-version: gray
+
+###
+
+GET http://127.0.0.1:6002/api/order/remote/user?uid=123
+Accept: application/json
+X-version: prod
+
+
+### 
+GET http://127.0.0.1:6060/api/order/test/spring-task-pool
+Accept: application/json
+X-version: prod
+
+###
+GET http://127.0.0.1:6002/api/order/test/anno-with-async
+Accept: application/json
+X-version: prod
+
+###
+GET http://127.0.0.1:6002/api/order/test/juc-thread-pool?uid=123
+Accept: application/json
+X-version: prod
+
+###
+GET http://127.0.0.1:6002/api/order/test/parallel
+Accept: application/json
+X-version: prod
+
+###
+
+GET http://127.0.0.1:6002/api/order/test/resttemplate
+Accept: application/json
+X-version: prod
+
+###
+###

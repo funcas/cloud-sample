@@ -1,6 +1,6 @@
 spring:
   application:
-    name: order-service
+    name: work-gateway
   cloud:
     nacos:
       discovery:
@@ -8,6 +8,16 @@ spring:
         username: ${nacos.user}
         password: ${nacos.password}
         namespace: ${nacos.namespace}
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/order/**
+        - id: upms-service
+          uri: lb://upms-service
+          predicates:
+            - Path=/api/upms/**
 #feign:
 #  hystrix:
 #    enabled: true
@@ -25,4 +35,4 @@ spring:
 #      maxQueueSize: 10 #BlockingQueue的最大队列数，默认值-1
 #      queueSizeRejectionThreshold: 5 #即便maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝，默认值5
 server:
-  port: 6002
+  port: 6060

@@ -9,6 +9,7 @@
         <module>upms-service</module>
         <module>order-service</module>
         <module>grey-agent</module>
+        <module>gateway</module>
     </modules>
     <name>cloud-alibaba</name>
     <description>cloud-alibaba</description>
@@ -58,7 +59,11 @@
 <!--                <version>2.2.5.RELEASE</version>-->
 <!--            </dependency>-->
 
-
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>2.13.2</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -92,6 +97,35 @@
                 </executions>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev1</id>
+            <properties>
+                <nacos.address>172.16.6.235:19102</nacos.address>
+                <nacos.namespace>aabd3618-f2d2-4cab-a7c5-f70f08c0f32a</nacos.namespace>
+                <nacos.user>user</nacos.user>
+                <nacos.password>user</nacos.password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>local</id>
+            <properties>
+                <nacos.address>127.0.0.1:8848</nacos.address>
+                <nacos.namespace>public</nacos.namespace>
+                <nacos.user>nacos</nacos.user>
+                <nacos.password>nacos</nacos.password>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
